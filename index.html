@@ -19,7 +19,8 @@
         },
         scene: {
             preload: preload,
-            create: create
+            create: create,
+			update:update
         }
     };
 
@@ -28,28 +29,28 @@
     var gameObjects = {};
     function preload ()
     {
-        this.load.setBaseURL('https://magewang.github.io/PhaserExample');
+		this.load.setBaseURL(document.URL);
 
         //this.load.image('sky', 'assets/skies/space3.png');
-        //this.load.image('sky', 'assets/skies/space3.png');
-        this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+        this.load.image('sky', 'assets/skies/space3.png');
+		this.load.image('logo', 'assets/sprites/phaser3-logo.png');
         this.load.image('red', 'assets/particles/red.png');
         this.load.image('meteor001', 'assets/meteors/space_meteors_001.png');
         this.load.image('meteor002', 'assets/meteors/space_meteors_002.png');
         this.load.image('meteor003', 'assets/meteors/space_meteors_003.png');
-        this.load.image('meteor004', 'assets/meteors/space_meteors_004.png');
+		this.load.image('meteor004', 'assets/meteors/space_meteors_004.png');
+		
         console.log(this);
     }
 
     function create ()
     {
         this.add.image(400, 300, 'sky');
-        this.add.image(400, 300, 'meteor001');
-        this.add.image(410, 300, 'meteor002');
-        this.add.image(420, 300, 'meteor003');
-        this.add.image(430, 300, 'meteor004');
+		var meteor = this.add.image(400, 350, 'meteor001');
+		gameObjects['meteor'] = meteor;
+		console.log(meteor);
+		
         var particles = this.add.particles('red');
-
         var emitter = particles.createEmitter({
             speed: 100,
             scale: { start: 1, end: 0 },
@@ -61,12 +62,14 @@
         //logo.setVelocity(100, 200);
         //logo.setBounce(1, 1);
         //logo.setCollideWorldBounds(true);
-
+		gameObjects['meteor'].rotation=1;
         emitter.startFollow(logo);
+		lastTime=this.time.now;
     }
-
+	var lastTime = 0;
     function update(){
-
+		deltaTime=this.time.now-lastTime;
+		gameObjects['meteor'].angle=10*deltaTime/1000;
     }
     </script>
 
