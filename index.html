@@ -39,37 +39,56 @@
         this.load.image('meteor002', 'assets/meteors/space_meteors_002.png');
         this.load.image('meteor003', 'assets/meteors/space_meteors_003.png');
 		this.load.image('meteor004', 'assets/meteors/space_meteors_004.png');
+		this.load.atlasXML('spaceShooter2_spritesheet', 'assets/spritesheet/spaceShooter2_spritesheet.png','assets/spritesheet/spaceShooter2_spritesheet.xml');
 		
         console.log(this);
     }
 
     function create ()
     {
-        this.add.image(400, 300, 'sky');
-		var meteor = this.add.image(400, 350, 'meteor001');
-		gameObjects['meteor'] = meteor;
-		console.log(meteor);
+		gameObjects['group'] = this.add.group('group');
+		console.log('group', gameObjects['group']);
+		//console.log('this.add', this.add);
+		<!-- var atlasTexture = this.textures.get('spaceShooter2_spritesheet'); -->
+		<!-- var frames = atlasTexture.getFrameNames(); -->
+		<!-- for (var i = 0; i < frames.length; i++) -->
+		<!-- { -->
+			<!-- var x = Phaser.Math.Between(0, 800); -->
+			<!-- var y = Phaser.Math.Between(0, 600); -->
+
+			<!-- this.add.image(x, y, 'spaceShooter2_spritesheet', frames[i]); -->
+		<!-- } -->
 		
-        var particles = this.add.particles('red');
-        var emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD'
-        });
-
-        var logo = this.physics.add.image(400, 100, 'logo');
-
-        //logo.setVelocity(100, 200);
-        //logo.setBounce(1, 1);
-        //logo.setCollideWorldBounds(true);
-		gameObjects['meteor'].rotation=1;
-        emitter.startFollow(logo);
-		lastTime=this.time.now;
+        //this.add.image(400, 300, 'sky');
+		gameObjects['meteor'] = this.add.sprite(400, 350, 'meteor001');
+		gameObjects['meteor'] .setDataEnabled();
+		console.log('meteor', gameObjects['meteor'] );
+		gameObjects['group'].add(gameObjects['meteor']);
+		console.log('group', gameObjects['group']);
+		gameObjects['meteor'].setScale(0.5,0.5);
+		
+        <!-- var particles = this.add.particles('red'); -->
+        <!-- var emitter = particles.createEmitter({ -->
+            <!-- speed: 100, -->
+            <!-- scale: { start: 1, end: 0 }, -->
+            <!-- blendMode: 'ADD' -->
+        <!-- }); -->
+        //var logo = this.physics.add.image(400, 100, 'logo');
+        //emitter.startFollow(logo);
     }
-	var lastTime = 0;
-    function update(){
-		deltaTime=this.time.now-lastTime;
-		gameObjects['meteor'].angle=10*deltaTime/1000;
+	
+	
+    function update(time, delta){
+		gameObjects['meteor'].angle+=10*delta/1000;
+		var cursors = this.input.keyboard.createCursorKeys();
+		if(cursors.up.isDown){
+			gameObjects['meteor'].scaleX +=0.1
+			gameObjects['meteor'].scaleY +=0.1
+		}
+		if(cursors.down.isDown){
+			gameObjects['meteor'].scaleX -=0.1
+			gameObjects['meteor'].scaleY -=0.1
+		}
     }
     </script>
 
