@@ -1,0 +1,56 @@
+{
+  "anims": [
+    {
+      "key": "playermonochrome",
+      "frameRate": 24,
+      "frames": [
+        {
+          "key": "monochrome",
+          "frame": 242
+        },
+        {
+          "key": "monochrome",
+          "frame": 243
+        },
+        {
+          "key": "monochrome",
+          "frame": 244
+        },
+        {
+          "key": "monochrome",
+          "frame": 245
+        },
+        {
+          "key": "monochrome",
+          "frame": 246
+        },
+        {
+          "key": "monochrome",
+          "frame": 247
+        }
+      ]
+    },
+    {
+      "key": "idle",
+      "frameRate": 24,
+      "frames": [
+        {
+          "key": "monochrome",
+          "frame": 242
+        },
+        {
+          "key": "monochrome",
+          "frame": 274
+        },
+        {
+          "key": "monochrome",
+          "frame": 306
+        }
+      ]
+    }
+  ],
+  "meta": {
+    "app": "Phaser Editor v2",
+    "contentType": "Phaser v3 Animations"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "section1": {"files": [
+    {
+      "type": "animation",
+      "key": "animations",
+      "url": "assets/animations.json"
+    },
+    {
+      "type": "sceneFile",
+      "key": "Scene1",
+      "url": "assets/scenes/Scene1.js"
+    },
+    {
+      "type": "multiatlas",
+      "key": "textures",
+      "url": "assets/atlas/textures.json",
+      "path": "assets/atlas"
+    },
+    {
+      "type": "spritesheet",
+      "key": "monochrome",
+      "url": "assets/atlas/monochrome.png",
+      "frameConfig": {
+        "frameWidth": 16,
+        "frameHeight": 16,
+        "endFrame": 1023,
+        "margin": 0,
+        "spacing": 1
+      }
+    },
+    {
+      "type": "animation",
+      "key": "player",
+      "url": "assets/player.json"
+    },
+    {
+      "type": "script",
+      "key": "Player",
+      "url": "assets/scenes/Player.js"
+    },
+    {
+      "type": "script",
+      "key": "Brick",
+      "url": "assets/scenes/Brick.js"
+    },
+    {
+      "type": "audio",
+      "key": "jump",
+      "url": ["assets/audio/jump.wav"]
+    },
+    {
+      "type": "audio",
+      "key": "music",
+      "url": ["assets/audio/music.mp3"]
+    },
+    {
+      "type": "audio",
+      "key": "break",
+      "url": ["assets/audio/break.mp3"]
+    },
+    {
+      "type": "script",
+      "key": "Goal",
+      "url": "assets/scenes/Goal.js"
+    }
+  ]},
+  "meta": {
+    "generated": "1575196220802",
+    "app": "Phaser Editor 2D - Asset Pack Editor - 2.1.5",
+    "contentType": "Phaser v3 Asset Pack",
+    "url": "https://phasereditor2d.com",
+    "version": "2"
+  }
+}
